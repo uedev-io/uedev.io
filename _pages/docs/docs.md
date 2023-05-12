@@ -13,6 +13,7 @@ redirect_from:
 - documentation/
 - doc
 - doc/
+- /
 ---
 
 ## Specifiers
