@@ -1,0 +1,16 @@
+{% include figure-begin.html text=include.text title=include.title %}
+<div>
+{% if include.no_link == null %}
+{% if include.link != null %}<a href='{{ include.link }}'>
+{% else %}<a href='{{ site.baseurl }}/assets/{{ include.file }}'>
+{% endif %}
+{% endif %}<img src='{{ site.baseurl }}/assets/{{ include.file }}' alt="{{ include.text | xml_escape }}"
+{% if include.css_class %}
+class="{{ include.css_class }}"
+{% endif %}
+/>
+{% if include.no_link == null %}
+</a>
+{% endif %}
+</div>
+{% include figure-end.html %}

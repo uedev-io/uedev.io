@@ -1,0 +1,13 @@
+# {{include.subgroup | default: "Uncategorized" }}
+{:.clearboth }
+
+
+{% assign grouped = site.categories["unreal"] | where: "subgroups",include.subgroup | sort: "date" | reverse %}
+{% assign entries_layout = include.entries_layout | default: 'list' %}
+<div class="entries-grid">
+{%- for post in grouped -%}
+  {%- unless post.hidden -%}
+    {% include archive-single.html %}
+  {%- endunless -%}
+{%- endfor -%}
+</div>

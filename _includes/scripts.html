@@ -1,0 +1,55 @@
+{% if site.footer_scripts %}
+  {% for script in site.footer_scripts %}
+    <script src="{{ script | relative_url }}"></script>
+  {% endfor %}
+{% else %}
+  <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% if site.search == true or page.layout == "search" %}
+  {%- assign search_provider = site.search_provider | default: "lunr" -%}
+  {%- case search_provider -%}
+    {%- when "lunr" -%}
+      {% include_cached search/lunr-search-scripts.html %}
+    {%- when "google" -%}
+      {% include_cached search/google-search-scripts.html %}
+    {%- when "algolia" -%}
+      {% include_cached search/algolia-search-scripts.html %}
+  {%- endcase -%}
+{% endif %}
+
+{% include analytics.html %}
+
+{% if site.after_footer_scripts %}
+  {% for script in site.after_footer_scripts %}
+    <script src="{{ script | relative_url }}"></script>
+  {% endfor %}
+{% endif %}
+
+
+{% if page.header.slides %}
+<script src="{{ '/assets/reveal/dist/reveal.js' | relative_url }}"></script>
+<script src="{{ '/assets/reveal/plugin/markdown/markdown.js' | relative_url }}"></script>
+<script src="{{ '/assets/reveal/plugin/notes/notes.js' | relative_url }}"></script>
+<script src="{{ '/assets/reveal/plugin/highlight/highlight.js' | relative_url }}"></script>
+
+<script>
+
+	Reveal.initialize({
+		//width: 1080,
+		//height: 1000,
+
+		controls: true,
+		controlsTutorial: true,
+		progress: true,
+		history: true,
+		center: true,
+		slideNumber: true,
+		embedded: true,
+		/*transition: 'fade',
+		transitionSpeed: 'fast',*/
+		plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+	});
+
+</script>
+{% endif %}

@@ -1,0 +1,264 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `jekyll serve`. If you change this file, please restart the server process.
+
+
+# theme: minimal-mistakes-jekyll
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Site Settings
+locale                   : "en"
+title                    : "uedev.io"
+title_separator          : "&#183;"
+subtitle                 : ""
+name                     : &name "uedev.io" # &name is a YAML anchor which can be *referenced later
+description              : &description "Unreal Engine dev and docs site"
+url                      : https://uedev.io
+baseurl                  : ""
+repository               : "uedev-io/uedev.io"
+teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : "/assets/logo.svg" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+breadcrumbs              : false # true, false (default)
+
+search                   : true # true, false (default)
+search_full_content      : true # true, false (default)
+
+# SEO Related
+google_site_verification :
+bing_site_verification   :
+yandex_site_verification :
+naver_site_verification  :
+
+# Social Sharing
+twitter:
+  username               : &twitter "_uedevio"
+og_image                 : "/assets/site-logo.png" # Open Graph/Twitter default site image
+# For specifying social profiles, used in _includes/seo.html
+# - https://developers.google.com/structured-data/customize/social-profiles
+social:
+  type                   : # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
+    - "https://twitter.com/_uedevio"
+
+# Analytics
+analytics:
+    provider               : "custom" # false (default), "google", "google-universal", "google-gtag", "custom"
+    #google:
+    #tracking_id          : "UA-4277687-2" # Replace this with your ID, or delete
+    #anonymize_ip         : true
+
+
+# Site Author
+author:
+  name             : *name # *name is a YAML reference pointing to the &anchor earlier
+  bio              : *description
+  home             : '/'
+
+
+# Site Footer
+footer:
+  links:
+    - label: "About"
+      #icon: "fab fa-fw fa-user"
+      url: "https://uedev.io/about"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://mastodon.uedev.io/"
+      #- label: "Twitter"
+      #icon: "fab fa-fw fa-twitter-square"
+      #url: "https://twitter.com/_uedevio"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      style: "color:#fff"
+      url: "https://github.com/benui-dev"
+    - label: "Discord"
+      icon: "fab fa-fw fa-discord"
+      url: "https://discord.benui.ca/"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/c/benui"
+    - label: "Report Bugs"
+      icon: "fab fa-fw fa-github"
+      style: "color:#fff"
+      url: "https://github.com/benui-dev/benui-site/issues"
+
+footer_scripts:
+  - /assets/js/main.min.js
+  - /assets/js/unreal.js
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+  - assets/data/UE-Specifier-Docs/images
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - run.bat
+  - assets/js/plugins
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - Rakefile
+  - README
+  - tmp
+  - raw
+  - assets/data/navigation.yml
+  - assets/data/ui-text.yaml
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: ["apos","apos","quot","quot"]
+  enable_coderay: false
+
+
+# Collections
+collections:
+  about:
+    output: true
+    permalink: /:collection/:path/
+    order:
+     - industries-of-titan.md
+     - vampyr.md
+     - monster-boy.md
+     - nova-111.md
+     - ia-vt.md
+
+
+# Defaults
+defaults:
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+  - scope:
+      path: "_pages/unreal"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: false
+      share: true
+      related: true
+      toc: true
+      toc_sticky: true
+      show_date: false
+  - scope:
+      path: "_posts/unreal"
+      type: posts
+    values:
+      category: unreal
+      subgroups:
+      - Uncategorized
+      header:
+        teaser: /assets/unreal/default-title-small.jpg
+  - scope:
+      path: "_posts/ux"
+      type: posts
+    values:
+      category: UX
+  # _about
+  - scope:
+      path: ""
+      type: about
+    values:
+      layout: single
+      classes: wide
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: false
+      share: true
+      related: true
+      toc: true
+      toc_sticky: true
+      show_date: false
+
+data_dir: /assets/data/
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+
+# Outputting
+permalink: /:categories/:title/
+# paginate: 5 # amount of posts to show
+# paginate_path: /page:num/
+#timezone: Canada/Vancouver # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+
+# Plugins (previously gems:)
+plugins:
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-gist
+- jekyll-feed
+- jemoji
+- jekyll-include-cache
+- jekyll-redirect-from
+
+# mimic GitHub Pages with --safe
+whitelist:
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-gist
+- jekyll-feed
+- jemoji
+- jekyll-include-cache
+- jekyll-redirect-from
+
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+webrick:
+  headers:
+    Permissions-Policy: "interest-cohort=()"
