@@ -1,13 +1,13 @@
 This page attempts to be an exhaustive list of all the `{{ include.type }}` specifiers,
 giving explanations, sample code, screenshots and related links for each.
 
-If you know of any not listed here, or see any mistakes, feel free to [contact me](https://twitter.com/_benui).
+If you know of any not listed here, or see any mistakes, [submit an issue or pull request via GitHub](https://github.com/uedev.io/UE-Specifier-Docs).
 
 Special thanks to Erekose Craft, Ben Fox, Aquanox, ATankNoMore for finding meta properties,
 giving feedback and giving great examples of usage.
 
 The YAML files used to generate this documentation are [available on
-GitHub](https://github.com/benui-dev/UE-Specifier-Docs). Feel free to submit
+GitHub](https://github.com/uedev.io/UE-Specifier-Docs). Feel free to submit
 pull requests or submit any incorrect or missing information there.
 
 # General Points
